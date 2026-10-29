@@ -1,0 +1,8 @@
+pip install -r requirements.txt
+python app.py
+
+http://localhost:5000
+
+docker실행
+docker build -t flask-security-lab .
+docker run --rm -p 5000:5000 flask-security-lab
