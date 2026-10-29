@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}내 정보 - 보안 실습 상점{% endblock %}
+{% block content %}
+<section class="card">
+    <h1>{{ session["display_name"] }}님, 환영합니다.</h1>
+    <p>로그인한 계정의 구매 내역입니다.</p>
+    <table>
+        <thead>
+            <tr><th>상품</th><th>구매일</th></tr>
+        </thead>
+        <tbody>
+        {% for purchase in purchases %}
+            <tr>
+                <td>{{ purchase["item_name"] }}</td>
+                <td>{{ purchase["purchased_at"] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}
