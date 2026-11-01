@@ -1,27 +1,44 @@
+/* 전체 페이지의 기본 글꼴과 색상입니다. */
 :root {
     font-family: Arial, sans-serif;
     color: #1f2937;
     background: #f3f4f6;
 }
 
+/* 브라우저 기본 바깥 여백을 제거합니다. */
 body { margin: 0; }
+/* 상단 헤더를 가로 방향으로 배치합니다. */
 .site-header {
     display: flex;
     justify-content: space-between;
     padding: 1rem 8%;
     background: #172554;
 }
+/* 헤더 안의 링크를 흰색으로 표시합니다. */
 .site-header a { color: white; text-decoration: none; margin-left: 1rem; }
+/* 첫 번째 링크를 로고처럼 굵게 표시합니다. */
 .site-header > a { font-weight: bold; margin-left: 0; }
+/* 본문 폭과 바깥 여백을 설정합니다. */
 .container { max-width: 760px; margin: 3rem auto; padding: 0 1rem; }
+/* 카드와 첫 화면에 흰 배경과 그림자를 적용합니다. */
 .hero, .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 16px #00000012; }
+/* 로그인 카드의 최대 폭을 줄입니다. */
 .narrow { max-width: 420px; margin: auto; }
+/* 작은 강조 문구의 색상과 굵기를 지정합니다. */
 .eyebrow { color: #2563eb; font-weight: bold; }
+/* 링크와 버튼을 파란색 버튼처럼 보이게 합니다. */
 .button, button { display: inline-block; border: 0; border-radius: 6px; padding: .75rem 1rem; background: #2563eb; color: white; text-decoration: none; cursor: pointer; }
+/* 로그인 폼의 요소를 세로 방향으로 배치합니다. */
 form { display: grid; gap: .5rem; }
+/* 입력 항목 이름을 굵게 표시합니다. */
 label { margin-top: .75rem; font-weight: bold; }
+/* 입력창의 크기와 테두리를 설정합니다. */
 input { padding: .7rem; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem; }
+/* 제출 버튼의 위쪽 여백과 글자 크기를 설정합니다. */
 button { margin-top: 1rem; font-size: 1rem; }
+/* 안내 메시지와 계정 안내를 박스 형태로 표시합니다. */
 .hint, .message { padding: .75rem; background: #eff6ff; border-radius: 5px; }
+/* 구매 내역 표를 본문 폭에 맞춥니다. */
 table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+/* 표 셀의 여백과 아래쪽 구분선을 설정합니다. */
 th, td { padding: .75rem; border-bottom: 1px solid #e5e7eb; text-align: left; }

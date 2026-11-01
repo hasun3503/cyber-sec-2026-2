@@ -1,29 +1,42 @@
 <!doctype html>
 <html lang="ko">
 <head>
+    <!-- 한글을 올바르게 표시하기 위한 문자 인코딩입니다. -->
     <meta charset="utf-8">
+    <!-- 모바일 화면에서도 페이지 폭이 자연스럽게 보이도록 설정합니다. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 자식 템플릿이 페이지 제목을 바꿀 수 있는 영역입니다. -->
     <title>{% block title %}보안 실습 상점{% endblock %}</title>
+    <!-- static/style.css 파일을 연결합니다. -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <!-- 모든 페이지에서 공통으로 보이는 상단 메뉴입니다. -->
     <header class="site-header">
+        <!-- 로고를 클릭하면 첫 화면으로 이동합니다. -->
         <a href="{{ url_for('index') }}">보안 실습 상점</a>
         <nav>
+            <!-- 세션에 user_id가 있으면 로그인 상태로 판단합니다. -->
             {% if session.get("user_id") %}
+                <!-- 로그인 상태에서만 내 정보와 로그아웃 메뉴를 보여줍니다. -->
                 <a href="{{ url_for('dashboard') }}">내 정보</a>
                 <a href="{{ url_for('logout') }}">로그아웃</a>
             {% else %}
+                <!-- 로그인하지 않은 상태에서는 로그인 메뉴를 보여줍니다. -->
                 <a href="{{ url_for('login') }}">로그인</a>
             {% endif %}
         </nav>
     </header>
+    <!-- 각 화면의 본문이 들어가는 공통 영역입니다. -->
     <main class="container">
+        <!-- Flask flash()가 저장한 안내 메시지를 가져옵니다. -->
         {% with messages = get_flashed_messages() %}
+            <!-- 안내 메시지가 있는 만큼 반복해서 출력합니다. -->
             {% for message in messages %}
                 <p class="message">{{ message }}</p>
             {% endfor %}
         {% endwith %}
+        <!-- 자식 템플릿의 실제 내용이 들어가는 영역입니다. -->
         {% block content %}{% endblock %}
     </main>
 </body>

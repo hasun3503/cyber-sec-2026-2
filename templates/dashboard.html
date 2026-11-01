@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 {% block title %}내 정보 - 보안 실습 상점{% endblock %}
 {% block content %}
+<!-- 로그인한 사용자만 볼 수 있는 대시보드 영역입니다. -->
 <section class="card">
+    <!-- 세션에 저장된 표시 이름을 출력합니다. -->
     <h1>{{ session["display_name"] }}님, 환영합니다.</h1>
     <p>로그인한 계정의 구매 내역입니다.</p>
+    <!-- 구매 내역을 표 형태로 표시합니다. -->
     <table>
         <thead>
+            <!-- 표의 제목 행입니다. -->
             <tr><th>상품</th><th>구매일</th></tr>
         </thead>
         <tbody>
+        <!-- Flask가 전달한 purchases 목록을 한 행씩 반복합니다. -->
         {% for purchase in purchases %}
             <tr>
+                <!-- 구매 상품 이름을 출력합니다. -->
                 <td>{{ purchase["item_name"] }}</td>
+                <!-- 구매 날짜를 출력합니다. -->
                 <td>{{ purchase["purchased_at"] }}</td>
             </tr>
         {% endfor %}
